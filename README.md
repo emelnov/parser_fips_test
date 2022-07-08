@@ -8,7 +8,7 @@ https://www.fips.ru/publication-web/publications/UsrTM?pageNumber=1&inputSelectO
 
 Файл readme.docx содержит обзор на возможности сбора информации 
 
-Папка "parsed_data" содержит результаты сбора иинформации сайта fips.ru
+Папка "parsed_data" содержит результаты сбора информации сайта fips.ru
 По каждой отдельной публикации хранится:
 Файл маленького изображения
 Файл большого изображения
