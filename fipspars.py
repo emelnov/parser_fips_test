@@ -54,7 +54,7 @@ def download(url, filepath):
 		# opener.addheaders = [('User-agent', 'Mozilla/5.0 (Linux; Android 4.4.4; Nexus 7 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.84 Safari/537.36')]
 		# urllib.request.install_opener(opener)
 		urllib.request.urlretrieve(url, filepath)
-	time.sleep(6)	
+	time.sleep(3)	
 	return True
 	
 	
@@ -69,8 +69,8 @@ headers = {
 
 
 
-pagenum = 59
-i = 400
+pagenum = 136
+i = 1100
 while True:
 	
 	
@@ -122,7 +122,7 @@ while True:
 			except:
 				print ("Нет изображения")
 				record['small_image_link'] = ''
-				sleep(6)
+				sleep(4)
 				
 			record['doc_desc'] =  ''
 			if len(elements[3].text)>0:
@@ -150,7 +150,7 @@ while True:
 			except:
 				print ("Нет изображения")
 				record['big_image_link'] = ''
-				sleep(6)
+				sleep(4)
 			
 			
 			
@@ -181,7 +181,7 @@ while True:
 			print (record)
 			print (step_folder_name)
 			i = i + 1		
-			time.sleep(11)
+			time.sleep(6)
 		except:	
 			print ("Ошибка при разборе , подождём / редко возникает, но обрывает работу. / Пауза одна минута")
 			time.sleep(60)
