@@ -69,8 +69,8 @@ headers = {
 
 
 
-pagenum = 136
-i = 1100
+pagenum = 226
+i = 2000
 while True:
 	
 	
@@ -97,9 +97,9 @@ while True:
 	table = soup.find('div',{'class':'bgtable'}).find('table',{'class':'table'})
 
 	anonses  = table.findChildren("table")
-	# print (anonses)
+
 	record = {}
-	if i % 100 == 0 or i == 0:
+	if i % 100 == 0 or i == 2000:
 		st_n = i
 		to_n = i + 100
 		step_folder_name = "steps_"+str(st_n)+"-"+str(to_n)
@@ -130,11 +130,14 @@ while True:
 			dates =  elements[5].find_all('span',{'class':'mobileblock'})
 			record['doc_public_date'] =  dates[0].text.replace(dates[0].find("span").text, "")
 			record['doc_reg_date'] =  dates[1].text.replace(dates[1].find("span").text, "")
-			record['pdf_link'] = elements[5].find("a")['href']
-			
-			path_for_record = create_path(step_folder_name+"/"+record['doc_num'].replace(" ", "_")+"/document.pdf")
-			download(record['pdf_link'] ,  './'+path_for_record['dir_path']+'/'+path_for_record['filename'])
-			
+			try:
+				record['pdf_link'] = elements[5].find("a")['href']
+				path_for_record = create_path(step_folder_name+"/"+record['doc_num'].replace(" ", "_")+"/document.pdf")
+				download(record['pdf_link'] ,  './'+path_for_record['dir_path']+'/'+path_for_record['filename'])
+			except:
+				print ("Нет pdf_link")
+				record['pdf_link'] = ''
+				sleep(4)
 			####
 			## Скачиваем более подробную информацию о публикации fips.ru
 			####
