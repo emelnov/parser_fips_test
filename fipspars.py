@@ -69,8 +69,8 @@ headers = {
 
 
 
-pagenum = 11
-i = 100
+pagenum = 59
+i = 400
 while True:
 	
 	
